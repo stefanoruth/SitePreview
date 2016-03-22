@@ -1,0 +1,172 @@
+@mixin clear {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+* {
+	margin: 0px;
+	outline: 0px;
+	padding: 0px;
+	border: 0px;
+	box-sizing: border-box;
+}
+
+html,body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+header {
+	display: block;
+	width: 100%;
+	height: 80px;
+	background-color: #333;
+	padding: 0px 20px;
+	@include clear;
+
+	.screens {
+		float: left;
+		display: block;
+		height: 100%;
+
+		li {
+			display: inline-block;
+			height: 100%;
+			margin-right: 10px;
+			line-height: 80px;
+
+			a {
+				display: block;
+				color: #fff;
+				text-decoration: none;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.controls {
+		float: right;
+		display: block;
+		height: 100%;
+		@include clear;
+
+		input,
+		button {
+			float: left;
+			height: 30px;
+			display: block;
+			margin: 25px 0px;
+			padding: 0px 10px;
+		}
+
+		input {
+			width: 230px;
+			background-color: #fff
+		}
+
+		button {
+			cursor: pointer;
+			background-color: rgb(221, 221, 221);
+		}
+	}
+}
+
+#viewIframe {
+	position: relative;
+	display: block;
+	width: 100%;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	background-position: top center;
+	background-repeat: no-repeat;
+
+	.wrapper {
+		margin: 0 auto;
+		position: relative;
+		display: block;
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+
+		iframe {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background-color: #333333;
+			-webkit-transition: all 0.1s ease-out;
+			-moz-transition: all 0.1s ease-out;
+			-o-transition: all 0.1s ease-out;
+			transition: all 0.1s ease-out;
+		}
+	}
+
+	&.mobile {
+		top: 10px;
+		height: 910px;
+		background-image: url('view-mobile.png');
+
+		.wrapper {
+			height: 595px;
+			width: 335px;
+
+			iframe {
+				top: 149px;
+			}
+		}
+	}
+
+	&.tablet-h {
+		top: 20px;
+		height: 1090px;
+		background-image: url('view-tablet-h.png');
+
+		.wrapper {
+			width: 1024px;
+			height: 768px;
+
+			iframe {
+				top: 105px;
+			}
+		}
+	}
+
+	&.tablet-v {
+		top: 10px;
+		height: 1345px;
+		background-image: url('view-tablet-v.png');
+
+		.wrapper {
+			width: 768px;
+			height: 1024px;
+
+			iframe {
+				top: 130px;
+			}
+		}
+	}	
+
+	&.desktop {
+		height: calc(100% - 80px);
+
+		.wrapper {
+			width: 100%;
+			height: 100%;
+
+			iframe {
+				top: 0px;
+			}
+		}
+	}
+}

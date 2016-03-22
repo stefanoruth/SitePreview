@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Site Preview</title>
+	<link rel="stylesheet" href="public/app.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.screens a').click(function(e){
+				e.preventDefault();
+				$('#viewIframe').removeClass().addClass($(this).data('screen'));
+			})
+
+			$('.controls form').submit(function(e){
+				e.preventDefault();
+				var url = $('.controls input[type=text]').val();
+				$('#viewIframe iframe').show().attr('src', url);
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<ul class="screens">
+			<li><a href="#" data-screen="desktop">Desktop</a></li>
+			<li><a href="#" data-screen="tablet-h">Tablet-h</a></li>
+			<li><a href="#" data-screen="tablet-v">Tablet-v</a></li>
+			<li><a href="#" data-screen="mobile">Mobile</a></li>
+		</ul>
+		<div class="controls">
+			<form>
+				<input type="text" name="url" placeholder="http://">
+				<button type="submit">Go</button>
+			</form>
+		</div>
+			
+		</form>
+	</header>
+	<div id="viewIframe" class="mobile">
+		<div class="wrapper">
+			<iframe src="" frameborder="0"></iframe>
+		</div>
+	</div>
+</body>
+</html>
