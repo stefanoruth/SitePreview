@@ -5,20 +5,7 @@
 	<title>Site Preview</title>
 	<link rel="stylesheet" href="public/app.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('.screens a').click(function(e){
-				e.preventDefault();
-				$('#viewIframe').removeClass().addClass($(this).data('screen'));
-			})
-
-			$('.controls form').submit(function(e){
-				e.preventDefault();
-				var url = $('.controls input[type=text]').val();
-				$('#viewIframe iframe').show().attr('src', url);
-			});
-		});
-	</script>
+	<script src="public/app.js" type="text/javascript"></script>
 </head>
 <body>
 	<header>
